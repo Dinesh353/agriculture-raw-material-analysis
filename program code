@@ -1,0 +1,40 @@
+import pandas as pd
+
+# Load the historical price data
+expanded_data = {
+    'Year': [2015, 2016, 2017, 2018, 2019, 2020, 2021],
+    'Corn_Price_USD': [180, 190, 210, 200, 220, 250, 270],
+    'Wheat_Price_USD': [280, 290, 310, 300, 280, 320, 330],
+    'Soybean_Price_USD': [380, 370, 390, 400, 380, 420, 430]
+}
+
+# Creating a DataFrame from the expanded dictionary
+expanded_df = pd.DataFrame(expanded_data)
+
+# Output the expanded dataset
+print(expanded_df)
+
+# Display basic information about the dataset
+print("Dataset Information:")
+print(expanded df.info())
+
+# Display summary statistics of numerical variables
+print("\nSummary Statistics:")
+print(expanded_df.describe())
+
+# Check for missing values
+print("\nMissing Values:")
+print(expanded_df.isnull().sum())
+
+# Visualize the distribution of raw material prices
+print("\nDistribution of Raw Material Prices:")
+for column in expanded_df.columns[1:]:
+    print(expanded_df[column].value_counts())
+
+# Visualize the trend of raw material prices over time
+print("\nTrend of Raw Material Prices Over Time:")
+print(expanded_df[['Year', 'Corn_Price_USD', 'Wheat_Price_USD', 'Soybean_Price_USD']])
+
+# Display the correlation matrix
+print("\nCorrelation Matrix:")
+print(expanded_df.corr())
